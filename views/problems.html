@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Problems</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+    <script type="" src="../scripts/app.js"></script>
+    <script type="" src="../scripts/script.js"></script>
+    <link href="../css/problems.css" rel="stylesheet" />
+    <link href="../css/modal.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <header id="section-top">
+        <div id="text">
+            <h1>Algoritmi</h1>
+            <h3>Gestionare probleme</h3>
+            <a href="http://www.infoarena.ro/arhiva" target="_blank">Exemple Probleme</a>
+        </div>
+        <footer>
+            <div style="display: block; width: 90%">
+                <nav id="nav" style="float: left; width: 70%;">
+                    <ul>
+                        <li v-if="authenticated!='true'">
+                            <a href="https://webtech-project-traininghelper-cornelsora.c9users.io/index.html">Log in</a>
+                        </li>
+                        <li v-else>
+                            <a v-on:click="onlyMine">Numai problemele mele</a>
+                        </li>
+                        <li v-if="authenticated=='true'">
+                            <a v-on:click="allProbs">Toate problemele</a>
+                        </li>
+                        <li>
+                            <a id="myBtn"><label v-show="authenticated=='true'">+ Adauga problema</label></a>
+                        </li>
+                    </ul>
+                </nav>
+                <aside style="float: right; width: 10%;">
+                    <ul>
+                        <li id="logout" v-if="authenticated=='true'">
+                            <a href="#" v-on:click="logout">Logout</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </footer>
+    </header>
+    <div id="problApp">
+        <section id="section-one">
+            <div class="gridcontainer">
+                <div class="griditem" v-for="probl in problems">
+                    <div class="text" v-on:click="showUpdateDialog(probl)">
+                        Denumire: {{probl.denumire}}
+                        <br/> Dificultate: {{probl.dificultate}}
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" id="pbDialog">
+                <span class="close">&times;</span>
+                <section class="section-add">
+                    <div class="form-group">
+                        <form>
+                            <div class="form-control">
+                                <label for="denumire">Denumire problema </label>
+                                <input type="text" placeholder="Denumire problema" v-model="denumirePb" id="txtDenumire" name="denumire" required="required">
+                            </div>
+                            <div class="form-control">
+                                <label for="dificultate">Nivel dificultate </label>
+                                <input type="number" placeholder="dificultate" v-model="dificultatePb" id="txtNivel" name="nivel" required="required" min="1" max="5">
+                            </div>
+                            <div class="form-control">
+                                <label for="enunt">Enunt problema</label>
+                                <textarea placeholder="Enunt problema" v-model="enuntPb" id="txtEnunt" name="enunt" required="required" rows="5"></textarea>
+                            </div>
+                    </div>
+                    <div class="buttons-group">
+                        <input type="button" value="Adauga" id="btnAddSubmit" v-on:click="addPb" class="btn btn-default" />
+                        <input type="button" value="Sterge" id="btnDelete" v-on:click="deletePb" class="btn btn-default" />
+                    </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <footer id="footer"></footer>
+</body>
+
+</html>

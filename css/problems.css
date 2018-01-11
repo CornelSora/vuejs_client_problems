@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#section-top { 
+    background-image: url(../sources/pb_wallpaper.jpg);
+    background-size: cover;
+}
+
+
+section {
+    text-align: center;
+}
+
+/* footer{ 
+    background-color: white;
+    height: 5%;
+    padding: 10 0;
+    bottom: 0;
+    position: relative;
+    height: 5%;
+    width: 100%;
+    margin: 5 0 0 0;
+} */
+#section-top #text {
+	text-align: center;
+	padding: 4% 0;
+}
+
+#section-top #text h1 {
+	color: white;
+	font-size: 50px;
+	font-weight: lighter;
+}
+
+#section-top #text h3 {
+	color: white;
+	font-size: 25px;
+	font-weight: lighter;
+}
+
+#section-top #text a {
+	color: white;
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: lighter;
+	border: 1px solid white;
+	border-radius: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+    border: 1px solid grey;
+    padding: 4px;
+}
+
+#nav {
+	float: left;
+}
+#nav ul li, aside ul li {
+	display: inline-block;
+	margin: 0px 6px;
+	font-size: 20px;
+}
+
+#section-one {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+}
+
+#section-one h1 {
+	text-align: center;
+	font-weight: lighter;
+	margin: 0;
+ }
+
+ #section-one h2 {
+ 	text-align: center;
+ 	font-weight: lighter;
+ }
+
+ div.gridcontainer {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+}
+div.griditem {
+    width: 20%;
+    margin: 8px;
+    float: left;
+}
+
+div.gridcontainer {
+    width: 100%;
+    /* display: flex;
+	display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: row; */
+    margin: 10px;
+}
+
+div.griditem {
+    border: solid rgb(138, 137, 137);
+    border-width: 1px;
+    /* width: 300px; */
+    height: auto;
+    padding: 10px;
+    background-color: #83cdff;
+}
+
+div.text {
+    text-align: center;
+    color: white;
+	padding: 4% 0;    
+}
+
+div.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+div.griditem:hover {
+	transform: scale(1.2);
+	transition-duration: 1s;
+    box-shadow: 5px 10px 5px #888888;
+    cursor: pointer;
+	/*border: 10px solid #888888;*/
+}
+
+.form-control {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    font-size: 12pt;   
+    width: 100%;
+    display: inline-flex;
+}
+
+.form-control label {
+    width: 10%;
+    padding: 5px;   
+    margin: 10px;
+    float: left;
+}
+
+.form-control input, textarea, button, select {
+    width: 80%;
+    float: right;
+    margin: 10px; 
+    padding: 5px;  
+    border-radius: 5px; 
+}
+
+.form-control input, select {
+    height: 20px;
+}
+
+.btn.btn-default {
+    width: auto;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 5px; 
+}
+
+.btn.btn-default:hover {
+    cursor: pointer;
+    background-color: lightgrey;  
+}
+
+.form-group {
+    width: 70%;
+    text-align: right;
+    margin: auto auto auto 10%;
+    /* padding-left: 15%; */
+}
+
+.form-group::-webkit-input-placeholder {
+    color: rgb(167, 166, 166);
+}
+
+.required:after {
+    content: "*";
+    font-weight: bold;
+    color: red;
+}
+
+.error-control {
+    display: block;
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .form-group {
+        width: auto;
+        text-align: right;
+        margin-left: 10px;
+        margin-right: 10px;
+        clear: both;
+    }
+    .form-control {
+        width: 100%;
+        clear: both;
+        display: block;
+        margin-left: 10px;
+    }
+    .form-control input, textarea, select {
+        width: 100%;
+        clear: both;
+    }
+    .form-control label {
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+    div.griditem {
+        width: 30%;
+        margin: 8px;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+    div.gridcontainer {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+    }
+    div.griditem {
+        width: 44%;
+        margin: 8px;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    div.gridcontainer {
+        flex-direction: column;
+        margin: 0px 10px;         
+    }
+    div.griditem {
+        width: 92%; 
+        margin: 8px 0;
+    }  
+}  
+
+a, label {
+    cursor: pointer;
+}
